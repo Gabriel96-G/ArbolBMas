@@ -8,38 +8,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
-        arbol.insertar(10);
-        arbol.insertar(20);
-        arbol.insertar(5);
-        arbol.insertar(6);
-        arbol.insertar(15);
-        arbol.insertar(30);
-        arbol.insertar(25);
-        arbol.insertar(40);
-        arbol.insertar(45);
-        arbol.insertar(50);
-
-        arbol.imprimirArbol();
-
-        System.out.println("Buscar clave 25: " + arbol.buscar(25));
-        System.out.println("Eliminar clave 25: " + arbol.eliminar(25));
-        System.out.println("Buscar clave 25 despues de eliminar: " + arbol.buscar(25));
-        arbol.imprimirArbol();
-        arbol.recorrerRango(10, 40);
-        arbol.recorrerRango(21, 29);
-        arbol.recorrerRango(40, 10);
-
-        System.out.println("Eliminar clave 5: " + arbol.eliminar(5));
-        arbol.imprimirArbol();
-        arbol.insertar(12);
-
-        System.out.println("Eliminar clave 15: " + arbol.eliminar(15));
-        arbol.imprimirArbol();
-        arbol.recorrerRango(6, 20);
-
-        System.out.println("Eliminar clave 40: " + arbol.eliminar(40));
-        arbol.imprimirArbol();
-        arbol.recorrerRango(6, 50);
 
         do {
             System.out.println("\n===== MENU ARBOL B+ =====");
