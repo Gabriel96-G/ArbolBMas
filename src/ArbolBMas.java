@@ -268,6 +268,56 @@ public void recorrerRango(int desde, int hasta) {
         }
     }
 
+    // Busca una clave y muestra los siguientes n elementos del arbol B+.
+    public void recorrerDesdeClave(int claveInicial, int n) {
+
+        if (n <= 0) {
+            System.out.println("La cantidad debe ser mayor que cero.");
+            return;
+        }
+
+        if (!buscar(claveInicial)) {
+            System.out.println("La clave inicial no existe en el arbol.");
+            return;
+        }
+
+        NodoArbolBMas actual = raiz;
+
+        // Buscar la hoja que contiene la clave inicial.
+        while (!actual.esHoja()) {
+            int i = 0;
+
+            while (i < actual.getClaves().size()
+                    && claveInicial >= actual.getClaves().get(i)) {
+                i++;
+            }
+
+            actual = actual.getHijos().get(i);
+        }
+
+        int contador = 0;
+
+        // Recorrer las hojas enlazadas e imprimir los siguientes n elementos.
+        while (actual != null && contador < n) {
+
+            for (int i = 0; i < actual.getClaves().size() && contador < n; i++) {
+
+                if (actual.getClaves().get(i) > claveInicial) {
+                    System.out.println("Clave: " + actual.getClaves().get(i)
+                            + " | Dato: " + actual.getDatos().get(i));
+
+                    contador++;
+                }
+            }
+
+            actual = actual.getSiguiente();
+        }
+
+        if (contador == 0) {
+            System.out.println("No existen elementos posteriores a la clave indicada.");
+        }
+    }
+
     private void eliminarRecursivo(NodoArbolBMas nodo, int clave) {
 
         // Si es una hoja, eliminar la clave y su dato.

@@ -71,14 +71,24 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.print("Ingrese la cantidad de elementos que desea recorrer: ");
+                    System.out.print("Ingrese la clave inicial: ");
                     if (!scanner.hasNextInt()) {
                         System.out.println("Entrada no valida. Debe ingresar un numero.");
                         scanner.next();
                         break;
                     }
+
+                    int claveInicial = scanner.nextInt();
+
+                    System.out.print("Ingrese la cantidad de elementos siguientes: ");
+                    if (!scanner.hasNextInt()) {
+                        System.out.println("Entrada no valida. Debe ingresar un numero.");
+                        scanner.next();
+                        break;
+                    }
+
                     int cantidad = scanner.nextInt();
-                    arbol.recorrerRango(cantidad);
+                    arbol.recorrerDesdeClave(claveInicial, cantidad);
                     break;
 
                 case 5:
