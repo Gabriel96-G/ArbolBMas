@@ -319,6 +319,13 @@ public void recorrerRango(int desde, int hasta) {
     // Aqui comienza el nuevo metodo.
     private void actualizarSeparadores(NodoArbolBMas nodo) {
 
+        // Actualizar los separadores de los nodos internos descendientes.
+        for (NodoArbolBMas hijo : nodo.getHijos()) {
+            if (!hijo.esHoja()) {
+                actualizarSeparadores(hijo);
+            }
+        }
+
         // Actualizar cada separador con la primera clave del hijo derecho.
         for (int i = 1; i < nodo.getHijos().size(); i++) {
 
